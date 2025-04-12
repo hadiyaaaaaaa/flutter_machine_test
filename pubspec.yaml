@@ -1,0 +1,33 @@
+name: logiology
+description: "A new Flutter project."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+  get: ^4.6.6
+  http: ^0.13.6
+  image_picker: ^1.0.4
+  shared_preferences: ^2.2.2
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_launcher_icons: ^0.13.1
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - lib/assets/logiology.png
+
+# ✅ This part MUST be outside the flutter block
+flutter_icons:
+  android: true
+  ios: false
+  image_path: "lib/assets/logiology.png"
