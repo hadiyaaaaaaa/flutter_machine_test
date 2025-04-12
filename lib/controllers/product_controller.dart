@@ -31,19 +31,21 @@ class ProductController extends GetxController {
         Get.snackbar('Error', 'Failed to load products');
       }
     } catch (e) {
-      Get.snackbar('Error', e.toString());
+      Get.snackbar('Error', 'An unexpected error occurred: ${e.toString()}');
     } finally {
       isLoading.value = false;
     }
   }
 
   void applyFilters() {
-    List<Product> results = productList;
+    List<Product> results = List.from(productList);
 
+    // Apply category filter
     if (selectedCategory.value.isNotEmpty) {
       results = results.where((p) => p.category == selectedCategory.value).toList();
     }
 
+    // Apply price range filter
     if (selectedPriceRange.value == 'Below 500') {
       results = results.where((p) => p.price < 500).toList();
     } else if (selectedPriceRange.value == 'Above 1000') {
